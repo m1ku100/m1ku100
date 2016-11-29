@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.html"><img src="images/bboo.png" alt="bboo.png" style="width: 160px; height: 100px"/></a>
+                        <a href="index.php"><img src="images/bboo.png" alt="bboo.png" style="width: 160px; height: 100px"/></a>
                     </div>
 
                 </div>
@@ -83,7 +83,7 @@
 
                             <div class="search_box pull-right">
                                 <input type="text" placeholder="Search"/>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+
                             </div>
                         </form>
                     </div>
