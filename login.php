@@ -3,9 +3,10 @@
  * Created by PhpStorm.
  * User: X451MA
  * Date: 11/29/2016
- * Time: 1:12 AM
+ * Time: 3:14 AM
  */
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Checkout | E-Shopper</title>
+    <title>Login | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -87,7 +88,7 @@
 
                             <div class="search_box pull-right">
                                 <input type="text" placeholder="Search"/>
-                                
+
                             </div>
                         </form>
                     </div>
@@ -99,42 +100,40 @@
 
 </header><!--/header-->
 
-<section>
-    <br>
+<section id="form"><!--form-->
     <div class="container">
         <div class="row">
-            <h2 class="title text-center">How to Rent</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <center>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-We-Do-1_compact.png">
-                            <h4>Choose your Product</h4>
-                            <p>Pilih produk yang </p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-We-Do2_compact.png">
-                            <h4>Reserved it</h4>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-we-do-3_compact.png">
-                            <h4>Pay it</h4>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-we-do-4_compact.png">
-                            <h4>Used it</h4>
-                        </div>
-                        </center>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form"><!--login form-->
+                    <h2>Login to your account</h2>
+                    <form action="#">
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email Address" />
+							<span>
+								<input type="checkbox" class="checkbox">
+								Keep me signed in
+							</span>
+                        <button type="submit" class="btn btn-default">Login</button>
+                    </form>
+                </div><!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <form action="#">
+                        <input type="text" placeholder="Name"/>
+                        <input type="email" placeholder="Email Address"/>
+                        <input type="password" placeholder="Password"/>
+                        <button type="submit" class="btn btn-default">Signup</button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
         </div>
     </div>
-
-
-</section> <!--/#cart_items-->
+</section><!--/form-->
 
 
 <footer id="footer"><!--Footer-->
@@ -240,9 +239,11 @@
 </footer><!--/Footer-->
 
 
+
 <script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="js/price-range.js"></script>
 <script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 </body>

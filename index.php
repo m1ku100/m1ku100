@@ -73,8 +73,8 @@
                             <li><a href="#"><i class="fa fa-star"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs"></i> Cara Sewa</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
-                            <li><a href="login.html"><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href=""><i class="fa fa-lock"></i>Login </a>  </li>
+                            <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
+                            <li><a href="login.php"><i class="fa fa-lock"></i>Login </a>  </li>
                         </ul>
                         <br>
                         <br>
