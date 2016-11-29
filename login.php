@@ -79,7 +79,7 @@
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href="login.php"><i class="fa fa-lock"></i>Login </a>  </li>
+                            <li><a href="login.php"><i class="fa fa-sign-in"></i>Login </a>  </li>
                         </ul>
                         <br>
                         <br>
@@ -100,6 +100,8 @@
 
 </header><!--/header-->
 
+
+
 <section id="form"><!--form-->
     <div class="container">
         <div class="row">
@@ -117,9 +119,13 @@
                     </form>
                 </div><!--/login form-->
             </div>
+
+            
             <div class="col-sm-1">
                 <h2 class="or">OR</h2>
             </div>
+
+
             <div class="col-sm-4">
                 <div class="signup-form"><!--sign up form-->
                     <h2>New User Signup!</h2>
@@ -134,6 +140,8 @@
         </div>
     </div>
 </section><!--/form-->
+
+
 
 
 <footer id="footer"><!--Footer-->

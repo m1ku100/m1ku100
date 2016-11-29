@@ -78,7 +78,7 @@
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href="login.php"><i class="fa fa-lock"></i>Login </a>  </li>
+                            <li><a href="login.php"><i class="fa fa-sign-in"></i>Login </a>  </li>
                         </ul>
                         <br>
                         <br>
@@ -110,20 +110,20 @@
                         <center>
                         <div class="col-sm-3">
                             <img src="images/cara/What-We-Do-1_compact.png">
-                            <h4>Choose your Product</h4>
+                            <h4><b>Choose your Product</b></h4>
                             <p>Pilih produk yang </p>
                         </div>
                         <div class="col-sm-3">
                             <img src="images/cara/What-We-Do2_compact.png">
-                            <h4>Reserved it</h4>
+                            <h4><b>Reserved it</b></h4>
                         </div>
                         <div class="col-sm-3">
                             <img src="images/cara/What-we-do-3_compact.png">
-                            <h4>Pay it</h4>
+                            <h4><b>Pay it</b></h4>
                         </div>
                         <div class="col-sm-3">
                             <img src="images/cara/What-we-do-4_compact.png">
-                            <h4>Used it</h4>
+                            <h4><b>Used it</b></h4>
                         </div>
                         </center>
                         </div>
