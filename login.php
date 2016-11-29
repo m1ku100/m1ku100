@@ -75,11 +75,11 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Blog</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Tentang</a></li>
+                            <li><a href="tentang.php"><i class="fa fa-users"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href="login.php"><i class="fa fa-sign-in"></i>Login </a>  </li>
+                            <li><a href="login.php"><i class="fa fa-sign-in active"></i>Login </a>  </li>
                         </ul>
                         <br>
                         <br>
@@ -108,9 +108,10 @@
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form"><!--login form-->
                     <h2>Login to your account</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
+                    <form action="#" method="post">
+
+                        <input type="email" placeholder="Email Address" name="">
+                        <input type="password" placeholder="Password" name="">
 							<span>
 								<input type="checkbox" class="checkbox">
 								Keep me signed in
@@ -120,7 +121,7 @@
                 </div><!--/login form-->
             </div>
 
-            
+
             <div class="col-sm-1">
                 <h2 class="or">OR</h2>
             </div>
@@ -129,10 +130,10 @@
             <div class="col-sm-4">
                 <div class="signup-form"><!--sign up form-->
                     <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name"/>
-                        <input type="email" placeholder="Email Address"/>
-                        <input type="password" placeholder="Password"/>
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Name" name="">
+                        <input type="email" placeholder="Email Address" name="">
+                        <input type="password" placeholder="Password" name="">
                         <button type="submit" class="btn btn-default">Signup</button>
                     </form>
                 </div><!--/sign up form-->
