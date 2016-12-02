@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: X451MA
- * Date: 11/29/2016
- * Time: 1:12 AM
- */
+
 ?>
 
 <!DOCTYPE html>
