@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | E-Shopper</title>
+    <title>About | Baby-boo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -111,6 +111,13 @@
 
 
 <section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <h2 class="title text-center">What We Do</h2>
+        </div>
+    </div>
+
 </section><!--/form-->
 
 
