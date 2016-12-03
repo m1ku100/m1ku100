@@ -72,7 +72,7 @@
                             <li><a href="#"><i class="fa fa-user"></i> Blog</a></li>
                             <li><a href="tentang.php"><i class="fa fa-users"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs"></i> Cara Sewa</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
+                            <li><a href="sk.php"><i class="fa fa-shopping-cart " ></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
                             <li><a href="login.php"><i class="fa fa-sign-in"></i>Login </a>  </li>
                         </ul>
@@ -116,7 +116,6 @@
                             </div>
                             <div class="col-sm-6">
                                 <img src="images/cara/baby_crawling-2560x1600.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
                             </div>
                         </div>
                         <div class="item">
@@ -128,7 +127,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <img src="images/cara/FPO-HERO-BABY.png" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+
                             </div>
                         </div>
 
@@ -141,7 +140,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <img src="images/cara/baby-png-12.png" class="girl img-responsive" alt="" style="width: 70%"/>
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                
                             </div>
                         </div>
 

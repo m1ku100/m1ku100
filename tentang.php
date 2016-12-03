@@ -85,7 +85,7 @@
                             <li><a href="#"><i class="fa fa-user"></i> Blog</a></li>
                             <li><a href="tentang.php"><i class="fa fa-users active"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Syarat & Ketentuan</a></li>
+                            <li><a href="sk.php"><i class="fa fa-shopping-cart " ></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
                             <li><a href="login.php"><i class="fa fa-sign-in "></i>Login </a>  </li>
                         </ul>

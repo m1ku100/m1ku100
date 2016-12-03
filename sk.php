@@ -1,6 +1,20 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: X451MA
+ * Date: 11/29/2016
+ * Time: 4:40 AM
+ */
 ?>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: X451MA
+ * Date: 11/29/2016
+ * Time: 3:14 AM
+ */
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cara pesan | Baby-boo</title>
+    <title>About | Baby-boo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -69,11 +83,11 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Blog</a></li>
-                            <li><a href="tentang.php"><i class="fa fa-users"></i> Tentang</a></li>
+                            <li><a href="tentang.php"><i class="fa fa-users active"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
-                            <li><a href="sk.php"><i class="fa fa-shopping-cart " ></i> Syarat & Ketentuan</a></li>
+                            <li><a href="sk.php"><i class="fa fa-shopping-cart active" ></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href="login.php"><i class="fa fa-sign-in"></i>Login </a>  </li>
+                            <li><a href="login.php"><i class="fa fa-sign-in "></i>Login </a>  </li>
                         </ul>
                         <br>
                         <br>
@@ -92,44 +106,21 @@
     </div><!--/header-middle-->
 
 
-</header></header><!--/header-->
+</header><!--/header-->
+
+
 
 <section>
     <br>
     <div class="container">
         <div class="row">
-            <h2 class="title text-center">How to Rent</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <center>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-We-Do-1_compact.png">
-                            <h4><b>Choose your Product</b></h4>
-                            <p>Pilih produk yang </p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-We-Do2_compact.png">
-                            <h4><b>Reserved it</b></h4>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-we-do-3_compact.png">
-                            <h4><b>Pay it</b></h4>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="images/cara/What-we-do-4_compact.png">
-                            <h4><b>Used it</b></h4>
-                        </div>
-                        </center>
-                        </div>
-                    </div>
-                </div>
-
+            <h2 class="title text-center">What We Do</h2>
         </div>
     </div>
 
+</section><!--/form-->
 
-</section> <!--/#cart_items-->
+
 
 
 <footer id="footer"><!--Footer-->
@@ -235,9 +226,11 @@
 </footer><!--/Footer-->
 
 
+
 <script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="js/price-range.js"></script>
 <script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 </body>
