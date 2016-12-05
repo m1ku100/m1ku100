@@ -114,7 +114,9 @@
     <br>
     <div class="container">
         <div class="row">
-            <h2 class="title text-center">What We Do</h2>
+            <div class="col-sm-12 padding-right">
+                <h2 class="title text-center">Syarat & Ketentuan</h2>
+            </div>
         </div>
     </div>
 
