@@ -116,6 +116,20 @@
         <div class="row">
             <div class="col-sm-12 padding-right">
                 <h2 class="title text-center">Syarat & Ketentuan</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <div class="col-sm-6">
+                            <h2 class="title text-center">Penyewaan</h2>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h2 class="title text-center">pengembalian</h2>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
