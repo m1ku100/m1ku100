@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: X451MA
- * Date: 11/29/2016
- * Time: 4:40 AM
- */
+
 ?>
 
 
@@ -235,15 +230,27 @@
                                         maka customer akan dikenakan biaya penjemputan kembali sebesar Rp 50.000.
                                     </li>
                                     <br>
-                                </ol><br>
+                                </ol>
+                                <br>
                                 <h4>Kerusakan</h4>
                                 <ol>
-                                    <li>Kami akan memeriksa setiap barang setelah dikembalikan.</li><br>
-                                    <li>Kami tidak akan mengenakan biaya untuk noda atau kerusakan kecil.</li><br>
-                                    <li>Namun, kami akan mengenakan biaya ganti rugi atas kerusakan jika diperlukan.</li><br>
-                                    <li>Jumlah biaya ganti rugi atas kerusakan tergantung dari tingkat kerusakan.</li><br>
-                                    <li>Kami berhak mengenakan biaya ganti rugi sampai dengan 1.5x harga retail jika terjadi kerusakan berat.</li><br>
-                                    <li>Biaya ganti rugi wajib dibayarkan paling lambat 24 jam setelah tagihan kami kirim.</li><br>
+                                    <li>Kami akan memeriksa setiap barang setelah dikembalikan.</li>
+                                    <br>
+                                    <li>Kami tidak akan mengenakan biaya untuk noda atau kerusakan kecil.</li>
+                                    <br>
+                                    <li>Namun, kami akan mengenakan biaya ganti rugi atas kerusakan jika diperlukan.
+                                    </li>
+                                    <br>
+                                    <li>Jumlah biaya ganti rugi atas kerusakan tergantung dari tingkat kerusakan.</li>
+                                    <br>
+                                    <li>Kami berhak mengenakan biaya ganti rugi sampai dengan 1.5x harga retail jika
+                                        terjadi kerusakan berat.
+                                    </li>
+                                    <br>
+                                    <li>Biaya ganti rugi wajib dibayarkan paling lambat 24 jam setelah tagihan kami
+                                        kirim.
+                                    </li>
+                                    <br>
                                 </ol>
 
                             </div>
@@ -350,9 +357,9 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank"
-                                                           href="http://www.themeum.com">Themeum</a></span></p>
+                < p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+                <p class="pull-right"> Designed by <span><a target="_blank"
+                                                            href="http://www.themeum.com">Themeum</a></span></p>
             </div>
         </div>
     </div>
