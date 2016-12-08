@@ -338,8 +338,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                 </div>
                 <!--php end-->
 
-                
-
 
                 <div class="recommended_items"><!--recommended_items-->
                     <h2 class="title text-center">recommended items</h2>
@@ -347,20 +345,32 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="item active">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php
+                                $query2 = "select * from barang  ORDER BY harga_barang DESC LIMIT 3 ";
+                                $result2 = mysqli_query($conn, $query2);
+                                if (mysqli_num_rows($result2) > 0) {
+                                     while ($row2 = mysqli_fetch_assoc($result2)) {
+                                     ?>
+
+                                            <div class="col-sm-4">
+                                                <div class="product-image-wrapper">
+                                                    <div class="single-products">
+                                                        <div class="productinfo text-center">
+                                                            <img src="img/<?php echo $row2['gambar']?>" alt="" style="width: 100px;height: 100px"/>
+                                                            <h2>Rp.<?php echo $row2['harga_barang'] ?></h2>
+                                                            <p><?php echo $row2['nama_barang'] ?></p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i
+                                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      <?php
+                                }
+                            }?>
+
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -375,6 +385,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -390,6 +402,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="item">
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
@@ -405,6 +419,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -419,6 +434,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -433,6 +449,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
