@@ -5,6 +5,6 @@ $username = "root";
 $password = "";
 $dbname = "boo";
 
-mysql_connect($servername, $username, $password);
-mysql_selectdb( $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
 ?>

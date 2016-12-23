@@ -1,20 +1,21 @@
 <?php
-session_start();
-include "../koneksi.php";
 
-    $user = $_POST['useradmin'];
-    $pass = $_POST['passwordadmin'];
+include "koneksi.php";
 
-    $query = "select id_admin, useradmin, passwordadmin from admin where id_admin='$user' AND  password=MD5('$pass') ";
-    $cek = mysqli_num_rows($query);
-        if (cek == '0'){
-            echo "<script>alert('Masuk Gagal!')</script>";
-        }
-        else {
-            $hasil = mysql_fetch_row($query);
-            $_SESSION['id_admin'] = $hasil['id_petugas'];
-            $_SESSION['useradmin'] = $hasil['useradmin'];
-            echo "<script>alert('Masuk Berhasil!')</script>";
-        }
-?>
-<meta http-equiv="refresh" content="1;url=index.php"/>
+
+            if (isset($_POST['login'])) {
+                        $username = mysqli_real_escape_string($conn, $_POST['username']);
+                        $password = mysqli_real_escape_string($conn, $_POST['password']);
+                        $login = mysqli_query($conn, "select * from admin where username='$username' AND password='$password'");
+                        if (mysqli_num_rows($login) > 0) {
+                            $_SESSION['username'] = $username;
+                            header("location: dashboard.php");
+                        } else {
+                            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>You are not an Admin! <a href="index.html"><- Back to site</a></div>';
+                        }
+                    }
+                    ?>
+
+
+
+<meta http-equiv="refresh" content="1;url=dashboard.php"/>
