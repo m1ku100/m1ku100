@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: X451MA
- * Date: 11/29/2016
- * Time: 3:14 AM
- */
+ include "koneksi.php";
+	session_start();
+
+	$_SESSION["masuk"] = false;
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +75,17 @@
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
                             <li><a href="sk.php"><i class="fa fa-shopping-cart " ></i> Syarat & Ketentuan</a></li>
                             <li><a href=""><i class="fa fa-list"></i> Kategori</a></li>
-                            <li><a href="login.php"><i class="fa fa-sign-in active"></i>Login </a>  </li>
+							<?php
+								if($_SESSION["masuk"]){
+									?>
+                            <li><a href="login.php"><i class="fa fa-sign-in active"></i>Logout </a>  </li>
+								<?php
+								}
+								else{?>
+							<li><a href="login.php"><i class="fa fa-sign-in active"></i>Login </a>  </li>
+								<?php
+								}
+								?>
                         </ul>
                         <br>
                         <br>

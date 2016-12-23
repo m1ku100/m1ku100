@@ -6,14 +6,7 @@
  * Time: 4:40 AM
  */
 ?>
-<?php
-/**
- * Created by PhpStorm.
- * User: X451MA
- * Date: 11/29/2016
- * Time: 3:14 AM
- */
-?>
+
 
 
 <!DOCTYPE html>

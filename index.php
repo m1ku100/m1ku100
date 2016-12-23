@@ -323,6 +323,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                                 <a href="#" class="btn btn-default add-to-cart"><i
                                                         class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
+                                            <img src="images/home/new.png" class="new" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -330,8 +331,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
                             <?php
                         }
-
-
                     }
 
                     ?>
@@ -350,120 +349,99 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                 $query2 = "select * from barang  ORDER BY harga_barang DESC LIMIT 3 ";
                                 $result2 = mysqli_query($conn, $query2);
                                 if (mysqli_num_rows($result2) > 0) {
-                                     while ($row2 = mysqli_fetch_assoc($result2)) {
-                                     ?>
+                                while ($row2 = mysqli_fetch_assoc($result2)) {
+                                ?>
 
-                                            <div class="col-sm-4">
-                                                <div class="product-image-wrapper">
-                                                    <div class="single-products">
-                                                        <div class="productinfo text-center">
-                                                            <img src="img/<?php echo $row2['gambar']?>" alt="" style="width: 100px;height: 100px"/>
-                                                            <h2>Rp.<?php echo $row2['harga_barang'] ?></h2>
-                                                            <p><?php echo $row2['nama_barang'] ?></p>
-                                                            <a href="#" class="btn btn-default add-to-cart"><i
-                                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                        </div>
-
-                                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="img/<?php echo $row2['gambar'] ?>" alt=""
+                                                         style="width: 128px;height: 128px"/>
+                                                    <h2>Rp.<?php echo $row2['harga_barang'] ?></h2>
+                                                    <p><?php echo $row2['nama_barang'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
                                                 </div>
-                                            </div>
-                                      <?php
-                                }
-                            }?>
 
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
 
+                                            </div>
                                         </div>
                                     </div>
+                                    <?php
+
+                                    }
+                                    } ?>
                                 </div>
 
 
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
+                                <div class="item">
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="images/home/recommend1.jpg" alt=""/>
+                                                    <h2>$56</h2>
+                                                    <p>Easy Polo Black Edition</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
 
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="images/home/recommend2.jpg" alt=""/>
+                                                    <h2>$56</h2>
+                                                    <p>Easy Polo Black Edition</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="images/home/recommend3.jpg" alt=""/>
+                                                    <h2>$56</h2>
+                                                    <p>Easy Polo Black Edition</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
-
-                            <div class="item">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            <a class="left recommended-item-control" href="#recommended-item-carousel"
+                               data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right recommended-item-control" href="#recommended-item-carousel"
+                               data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div><!--/recommended_items-->
+                    </div><!--/recommended_items-->
+
+                </div>
+                <!--akhir dari recommended-->
+
+
 
             </div>
         </div>
-    </div>
 </section>
 
 <footer id="footer"><!--Footer-->
