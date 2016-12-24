@@ -11,7 +11,9 @@ include "koneksi.php";
                             $_SESSION['username'] = $username;
                             header("location: dashboard.php");
                         } else {
+                            
                             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>You are not an Admin! <a href="index.html"><- Back to site</a></div>';
+
                         }
                     }
                     ?>

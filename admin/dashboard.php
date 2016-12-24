@@ -1,7 +1,7 @@
 <?php
 include "koneksi.php";
 
-}
+
 ?>
 
 <html>
@@ -12,5 +12,6 @@ include "koneksi.php";
 <body>
 
 anjegg
+<a href="logout.php">logout</a>
 </body>
 </html>

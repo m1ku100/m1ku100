@@ -55,7 +55,7 @@ session_start();
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" value="login" class="btn btn-default">
+                               <button class="btn btn-default " value="">masuk</button>
 
                             </td>
                         </tr>
