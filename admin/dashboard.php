@@ -252,7 +252,7 @@ if (!$_SESSION['username']) {
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="form-elements.html">
+                        <a href="form-elements.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Form Elements
                         </a>

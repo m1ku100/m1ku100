@@ -1,11 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "boo";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
+include "koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -297,9 +291,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center">Our's Items</h2>
                     <?php
-                    $query = "select * from barang  ORDER BY harga_barang DESC LIMIT 3 ";
+                    $query = "select * from barang  ORDER BY harga DESC LIMIT 3 ";
                     $result = mysqli_query($conn, $query);
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -310,15 +304,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                         <div class="productinfo text-center">
                                             <img src="img/<?php echo $row['gambar'] ?>" alt=""
                                                  style="width: 248px;height:229px "/>
-                                            <h2>Rp.<?php echo $row['harga_barang'] ?></h2>
-                                            <p><?php echo $row['nama_barang'] ?></p>
+                                            <h2>Rp.<?php echo $row['harga'] ?></h2>
+                                            <p><?php echo $row['n_barang'] ?></p>
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                     class="fa fa-shopping-cart"></i>Add
                                                 to cart</a>
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
-                                                <h2>Rp.<?php echo $row['harga_barang'] ?></h2>
+                                                <h2>Rp.<?php echo $row['harga'] ?></h2>
                                                 <p><?php echo $row['nama_barang'] ?></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i
                                                         class="fa fa-shopping-cart"></i>Add to cart</a>

@@ -1,10 +1,12 @@
 <?php
+$var = $_REQUEST;
 error_reporting(0);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "boo";
+$dbname = "babyboo";
 
-mysql_connect($servername, $username, $password);
-mysql_selectdb( $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+
 ?>
