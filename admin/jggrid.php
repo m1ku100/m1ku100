@@ -5,7 +5,6 @@ if (!$_SESSION['username']) {
     header("location: index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,19 +149,13 @@ if (!$_SESSION['username']) {
 <!-- /section:basics/navbar.layout -->
 <div class="main-container" id="main-container">
     <script type="text/javascript">
-        try {
-            ace.settings.check('main-container', 'fixed')
-        } catch (e) {
-        }
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
     </script>
 
     <!-- #section:basics/sidebar -->
     <div id="sidebar" class="sidebar                  responsive">
         <script type="text/javascript">
-            try {
-                ace.settings.check('sidebar', 'fixed')
-            } catch (e) {
-            }
+            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
         </script>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -199,7 +192,7 @@ if (!$_SESSION['username']) {
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            <li class="active">
+            <li class="">
                 <a href="dashboard.php">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> Dashboard </span>
@@ -209,7 +202,8 @@ if (!$_SESSION['username']) {
             </li>
 
 
-            <li class="">
+
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> Tables </span>
@@ -220,7 +214,7 @@ if (!$_SESSION['username']) {
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-                    <li class="">
+                    <li>
                         <a href="tables.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Simple &amp; Dynamic
@@ -229,7 +223,7 @@ if (!$_SESSION['username']) {
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
+                    <li class="active">
                         <a href="jggrid.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             jqGrid plugin
@@ -260,6 +254,8 @@ if (!$_SESSION['username']) {
                         <b class="arrow"></b>
                     </li>
 
+
+
                     <li class="">
                         <a href="wysiwyg.html">
                             <i class="menu-icon fa fa-caret-right"></i>
@@ -274,6 +270,7 @@ if (!$_SESSION['username']) {
             </li>
 
 
+
             <li class="">
                 <a href="gallery.html">
                     <i class="menu-icon fa fa-picture-o"></i>
@@ -284,20 +281,18 @@ if (!$_SESSION['username']) {
             </li>
 
 
-        </ul><!-- /.nav-list -->
+
+
+        </ul>
 
         <!-- #section:basics/sidebar.layout.minimize -->
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
-               data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
 
         <!-- /section:basics/sidebar.layout.minimize -->
         <script type="text/javascript">
-            try {
-                ace.settings.check('sidebar', 'collapsed')
-            } catch (e) {
-            }
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
         </script>
     </div>
 
@@ -307,10 +302,7 @@ if (!$_SESSION['username']) {
             <!-- #section:basics/content.breadcrumbs -->
             <div class="breadcrumbs" id="breadcrumbs">
                 <script type="text/javascript">
-                    try {
-                        ace.settings.check('breadcrumbs', 'fixed')
-                    } catch (e) {
-                    }
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                 </script>
 
                 <ul class="breadcrumb">
@@ -318,15 +310,18 @@ if (!$_SESSION['username']) {
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Home</a>
                     </li>
-                    <li class="active">Dashboard</li>
+
+                    <li>
+                        <a href="#">Tables</a>
+                    </li>
+                    <li class="active">jqGrid plugin</li>
                 </ul><!-- /.breadcrumb -->
 
                 <!-- #section:basics/content.searchbox -->
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-                                           id="nav-search-input" autocomplete="off"/>
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
                     </form>
@@ -334,10 +329,6 @@ if (!$_SESSION['username']) {
 
                 <!-- /section:basics/content.searchbox -->
             </div>
-
-
-
-
 
             <!-- /section:basics/content.breadcrumbs -->
             <div class="page-content">
@@ -366,7 +357,7 @@ if (!$_SESSION['username']) {
 
                             <!-- #section:settings.navbar -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
                                 <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                             </div>
 
@@ -374,7 +365,7 @@ if (!$_SESSION['username']) {
 
                             <!-- #section:settings.sidebar -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
                                 <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                             </div>
 
@@ -382,7 +373,7 @@ if (!$_SESSION['username']) {
 
                             <!-- #section:settings.breadcrumbs -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
                                 <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                             </div>
 
@@ -390,7 +381,7 @@ if (!$_SESSION['username']) {
 
                             <!-- #section:settings.rtl -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
                                 <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                             </div>
 
@@ -398,7 +389,7 @@ if (!$_SESSION['username']) {
 
                             <!-- #section:settings.container -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
                                 <label class="lbl" for="ace-settings-add-container">
                                     Inside
                                     <b>.container</b>
@@ -411,17 +402,17 @@ if (!$_SESSION['username']) {
                         <div class="pull-left width-50">
                             <!-- #section:basics/sidebar.options -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
                                 <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
                             </div>
 
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
                                 <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
                             </div>
 
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
                                 <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
                             </div>
 
@@ -433,50 +424,32 @@ if (!$_SESSION['username']) {
                 <!-- /section:settings.box -->
                 <div class="page-header">
                     <h1>
-                        Dashboard
+                        jqGrid
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            overview &amp; stats
+                            Dynamic tables and grids using jqGrid plugin
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
 
-
-
-
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <div class="alert alert-block alert-success">
-                            <button type="button" class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
-                            </button>
-
-                            <i class="ace-icon fa fa-check green"></i>
-
-                            Welcome to
-                            <strong class="green">
-                                Ace
-                                <small>(v1.3.3)</small>
-                            </strong>,
-                            the lightweight, feature-rich and easy to use admin template.
+                        <div class="well well-sm">
+                            You can have a custom jqGrid download here:
+                            <a href="http://www.trirand.com/blog/?page_id=6" target="_blank">
+                                http://www.trirand.com/blog/?page_id=6
+                                <i class="fa fa-external-link bigger-110"></i>
+                            </a>
                         </div>
 
+                        <table id="grid-table"></table>
 
+                        <div id="grid-pager"></div>
 
-                        <!-- #section:custom/extra.hr -->
-                        <div class="hr hr32 hr-dotted"></div>
-
-                        <!-- /section:custom/extra.hr -->
-                        <div class="row">
-
-
-
-                        </div><!-- /.row -->
-
-
-
-
+                        <script type="text/javascript">
+                            var $path_base = "..";//in Ace demo this will be used for editurl parameter
+                        </script>
 
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
@@ -990,8 +963,6 @@ if (!$_SESSION['username']) {
 <script src="docs/assets/js/language/generic.js"></script>
 <script src="docs/assets/js/language/html.js"></script>
 <script src="docs/assets/js/language/css.js"></script>
-<script src="docs/assets/js/language/javascript.js"></script>
-</body>
+<script src="docs/assets/js/language/javascript.js"></script></body></body>
 </html>
-
 

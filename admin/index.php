@@ -55,13 +55,12 @@ session_start();
                             <td><input required type="password" name="password"
                                        placeholder="please enter password"></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <button type="submit" value="login" name="login">MASUK</button>
-
-                            </td>
-                        </tr>
                     </table>
+
+                                <button type="submit" value="login" name="login" class="btn btn-default center-block">MASUK</button>
+
+
+
                     <?php
                     if (isset($_POST['login'])) {
                         $username = mysqli_real_escape_string($conn, $_POST['username']);
