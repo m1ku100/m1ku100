@@ -1,9 +1,20 @@
 <?php
-include "koneksi.php";
+error_reporting(0);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "babyboo";
 session_start();
 if (!$_SESSION['username']) {
     header("location: index.php");
 }
+$var =$_POST;
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+$query = "insert into pengembalian (member,barang,keterlambatan,tgl_sewa,tgl_kembali,jml_denda,total_bayar)
+values ('$_REQUEST[member]','$_REQUEST[barang]','$_REQUEST[keterlambatan]','$_REQUEST[tgl_sewa]','$_REQUEST[tgl_kembali]','$_REQUEST[jml_denda]','$_REQUEST[total_bayar]')";
+
+mysqli_query($conn,$query);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,30 +28,30 @@ if (!$_SESSION['username']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.css"/>
 
     <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
-    <link rel="stylesheet" href="assets/css/chosen.css" />
-    <link rel="stylesheet" href="assets/css/datepicker.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
-    <link rel="stylesheet" href="assets/css/daterangepicker.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css" />
-    <link rel="stylesheet" href="assets/css/colorpicker.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css"/>
+    <link rel="stylesheet" href="assets/css/chosen.css"/>
+    <link rel="stylesheet" href="assets/css/datepicker.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-timepicker.css"/>
+    <link rel="stylesheet" href="assets/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" href="assets/css/colorpicker.css"/>
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="assets/css/ace-fonts.css"/>
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
+    <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet"/>
     <![endif]-->
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-ie.css" />
+    <link rel="stylesheet" href="assets/css/ace-ie.css"/>
     <![endif]-->
 
     <!-- inline styles related to this page -->
@@ -58,7 +69,6 @@ if (!$_SESSION['username']) {
 </head>
 
 <body class="no-skin">
-<!-- #section:basics/navbar.layout -->
 <div id="navbar" class="navbar navbar-default">
     <script type="text/javascript">
         try {
@@ -147,20 +157,18 @@ if (!$_SESSION['username']) {
     </div><!-- /.navbar-container -->
 </div>
 
-<!-- /section:basics/navbar.layout -->
-<div class="main-container" id="main-container">
+<div class="main-container ace-save-state" id="main-container">
     <script type="text/javascript">
         try {
-            ace.settings.check('main-container', 'fixed')
+            ace.settings.loadState('main-container')
         } catch (e) {
         }
     </script>
 
-    <!-- #section:basics/sidebar -->
-    <div id="sidebar" class="sidebar                  responsive">
+    <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
         <script type="text/javascript">
             try {
-                ace.settings.check('sidebar', 'fixed')
+                ace.settings.loadState('sidebar')
             } catch (e) {
             }
         </script>
@@ -175,7 +183,6 @@ if (!$_SESSION['username']) {
                     <i class="ace-icon fa fa-pencil"></i>
                 </button>
 
-                <!-- #section:basics/sidebar.layout.shortcuts -->
                 <button class="btn btn-warning">
                     <i class="ace-icon fa fa-users"></i>
                 </button>
@@ -183,8 +190,6 @@ if (!$_SESSION['username']) {
                 <button class="btn btn-danger">
                     <i class="ace-icon fa fa-cogs"></i>
                 </button>
-
-                <!-- /section:basics/sidebar.layout.shortcuts -->
             </div>
 
             <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
@@ -223,7 +228,7 @@ if (!$_SESSION['username']) {
                     <li class="">
                         <a href="barang.php">
                             <i class="menu-icon fa fa-caret-right"></i>
-                           Barang
+                            Barang
                         </a>
 
                         <b class="arrow"></b>
@@ -313,42 +318,27 @@ if (!$_SESSION['username']) {
 
         </ul><!-- /.nav-list -->
 
-        <!-- #section:basics/sidebar.layout.minimize -->
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
-               data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+               data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
-
-        <!-- /section:basics/sidebar.layout.minimize -->
-        <script type="text/javascript">
-            try {
-                ace.settings.check('sidebar', 'collapsed')
-            } catch (e) {
-            }
-        </script>
     </div>
 
-    <!-- /section:basics/sidebar -->
     <div class="main-content">
         <div class="main-content-inner">
-            <!-- #section:basics/content.breadcrumbs -->
-            <div class="breadcrumbs" id="breadcrumbs">
-                <script type="text/javascript">
-                    try {
-                        ace.settings.check('breadcrumbs', 'fixed')
-                    } catch (e) {
-                    }
-                </script>
-
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Home</a>
                     </li>
-                    <li class="active">Dashboard</li>
+
+                    <li>
+                        <a href="#">Forms</a>
+                    </li>
+                    <li class="active">Form Elements</li>
                 </ul><!-- /.breadcrumb -->
 
-                <!-- #section:basics/content.searchbox -->
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
 								<span class="input-icon">
@@ -358,17 +348,9 @@ if (!$_SESSION['username']) {
 								</span>
                     </form>
                 </div><!-- /.nav-search -->
-
-                <!-- /section:basics/content.searchbox -->
             </div>
 
-
-
-
-
-            <!-- /section:basics/content.breadcrumbs -->
             <div class="page-content">
-                <!-- #section:settings.box -->
                 <div class="ace-settings-container" id="ace-settings-container">
                     <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
                         <i class="ace-icon fa fa-cog bigger-130"></i>
@@ -376,7 +358,6 @@ if (!$_SESSION['username']) {
 
                     <div class="ace-settings-box clearfix" id="ace-settings-box">
                         <div class="pull-left width-50">
-                            <!-- #section:settings.skins -->
                             <div class="ace-settings-item">
                                 <div class="pull-left">
                                     <select id="skin-colorpicker" class="hide">
@@ -389,123 +370,315 @@ if (!$_SESSION['username']) {
                                 <span>&nbsp; Choose Skin</span>
                             </div>
 
-                            <!-- /section:settings.skins -->
-
-                            <!-- #section:settings.navbar -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
+                                       id="ace-settings-navbar" autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                             </div>
 
-                            <!-- /section:settings.navbar -->
-
-                            <!-- #section:settings.sidebar -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
+                                       id="ace-settings-sidebar" autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                             </div>
 
-                            <!-- /section:settings.sidebar -->
-
-                            <!-- #section:settings.breadcrumbs -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
+                                       id="ace-settings-breadcrumbs" autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                             </div>
 
-                            <!-- /section:settings.breadcrumbs -->
-
-                            <!-- #section:settings.rtl -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"
+                                       autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                             </div>
 
-                            <!-- /section:settings.rtl -->
-
-                            <!-- #section:settings.container -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
+                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
+                                       id="ace-settings-add-container" autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-add-container">
                                     Inside
                                     <b>.container</b>
                                 </label>
                             </div>
-
-                            <!-- /section:settings.container -->
                         </div><!-- /.pull-left -->
 
                         <div class="pull-left width-50">
-                            <!-- #section:basics/sidebar.options -->
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover"
+                                       autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
                             </div>
 
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact"
+                                       autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
                             </div>
 
                             <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight"/>
+                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight"
+                                       autocomplete="off"/>
                                 <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
                             </div>
-
-                            <!-- /section:basics/sidebar.options -->
                         </div><!-- /.pull-left -->
                     </div><!-- /.ace-settings-box -->
                 </div><!-- /.ace-settings-container -->
 
-                <!-- /section:settings.box -->
                 <div class="page-header">
                     <h1>
-                        Dashboard
+                        Form Elements
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            overview &amp; stats
+                            Common form elements and layouts
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
 
-
-
-
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <div class="alert alert-block alert-success">
-                            <button type="button" class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
-                            </button>
-
-                            <i class="ace-icon fa fa-check green"></i>
-
-                            Welcome to
-                            <strong class="green">
-                                Ace
-                                <small>(v1.3.3)</small>
-                            </strong>,
-                            the lightweight, feature-rich and easy to use admin template.
-                        </div>
-
-
-
-                        <!-- #section:custom/extra.hr -->
-                        <div class="hr hr32 hr-dotted"></div>
-
-                        <!-- /section:custom/extra.hr -->
-                        <div class="row">
-
-
-
-                        </div><!-- /.row -->
 
 
 
 
+                        <!-- ,ulai form -->
+                        <form class="form-horizontal" method="post" target="_self" action="form-elements.php">
 
-                        <!-- PAGE CONTENT ENDS -->
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Member </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="member" type="text" id="form-field-1" placeholder="text"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Barang </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="barang" type="text" id="form-field-1" placeholder="Name"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tanggal Sewa </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="tgl_sewa" type="text" id="form-field-1" placeholder="Alamat"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tanggal Kembali </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="tgl_kembali" type="date" id="form-field-1" placeholder="telp"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Keterlambatan </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="keterlambatan" type="date" id="form-field-1" placeholder="email"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Jumlah Denda </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="jml_denda" type="date" id="form-field-1" placeholder="username"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Total Bayar</label>
+
+                                <div class="col-sm-9">
+                                    <input required name="total_bayar" type="date" id="form-field-1" placeholder="password"
+                                           class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix form-actions">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btn btn-info" type="submit">
+                                        <i class="ace-icon fa fa-check bigger-110"></i>
+                                        Submit
+                                    </button>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn" type="reset">
+                                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="hr hr-24"></div>
+
+
+                            <div class="space-24"></div>
+
+
+                        </form>
+
+
+
+
+
+
+
+
+
+                        <div class="hr hr-18 dotted hr-double"></div>
+
+                        <h4 class="pink">
+                            <i class="ace-icon fa fa-hand-o-right green"></i>
+                            <a href="#modal-form" role="button" class="blue" data-toggle="modal"> Form Inside a Modal
+                                Box </a>
+                        </h4>
+
+                        <div class="hr hr-18 dotted hr-double"></div>
+
+
+
+
+                        <div id="modal-form" class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="blue bigger">Please fill the following form fields</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-5">
+                                                <div class="space"></div>
+
+                                                <input type="file"/>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-7">
+                                                <div class="form-group">
+                                                    <label for="form-field-select-3">Location</label>
+
+                                                    <div>
+                                                        <select class="chosen-select"
+                                                                data-placeholder="Choose a Country...">
+                                                            <option value="">&nbsp;</option>
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="AK">Alaska</option>
+                                                            <option value="AZ">Arizona</option>
+                                                            <option value="AR">Arkansas</option>
+                                                            <option value="CA">California</option>
+                                                            <option value="CO">Colorado</option>
+                                                            <option value="CT">Connecticut</option>
+                                                            <option value="DE">Delaware</option>
+                                                            <option value="FL">Florida</option>
+                                                            <option value="GA">Georgia</option>
+                                                            <option value="HI">Hawaii</option>
+                                                            <option value="ID">Idaho</option>
+                                                            <option value="IL">Illinois</option>
+                                                            <option value="IN">Indiana</option>
+                                                            <option value="IA">Iowa</option>
+                                                            <option value="KS">Kansas</option>
+                                                            <option value="KY">Kentucky</option>
+                                                            <option value="LA">Louisiana</option>
+                                                            <option value="ME">Maine</option>
+                                                            <option value="MD">Maryland</option>
+                                                            <option value="MA">Massachusetts</option>
+                                                            <option value="MI">Michigan</option>
+                                                            <option value="MN">Minnesota</option>
+                                                            <option value="MS">Mississippi</option>
+                                                            <option value="MO">Missouri</option>
+                                                            <option value="MT">Montana</option>
+                                                            <option value="NE">Nebraska</option>
+                                                            <option value="NV">Nevada</option>
+                                                            <option value="NH">New Hampshire</option>
+                                                            <option value="NJ">New Jersey</option>
+                                                            <option value="NM">New Mexico</option>
+                                                            <option value="NY">New York</option>
+                                                            <option value="NC">North Carolina</option>
+                                                            <option value="ND">North Dakota</option>
+                                                            <option value="OH">Ohio</option>
+                                                            <option value="OK">Oklahoma</option>
+                                                            <option value="OR">Oregon</option>
+                                                            <option value="PA">Pennsylvania</option>
+                                                            <option value="RI">Rhode Island</option>
+                                                            <option value="SC">South Carolina</option>
+                                                            <option value="SD">South Dakota</option>
+                                                            <option value="TN">Tennessee</option>
+                                                            <option value="TX">Texas</option>
+                                                            <option value="UT">Utah</option>
+                                                            <option value="VT">Vermont</option>
+                                                            <option value="VA">Virginia</option>
+                                                            <option value="WA">Washington</option>
+                                                            <option value="WV">West Virginia</option>
+                                                            <option value="WI">Wisconsin</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="space-4"></div>
+
+                                                <div class="form-group">
+                                                    <label for="form-field-username">Username</label>
+
+                                                    <div>
+                                                        <input type="text" id="form-field-username"
+                                                               placeholder="Username" value="alexdoe"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="space-4"></div>
+
+                                                <div class="form-group">
+                                                    <label for="form-field-first">Name</label>
+
+                                                    <div>
+                                                        <input type="text" id="form-field-first"
+                                                               placeholder="First Name" value="Alex"/>
+                                                        <input type="text" id="form-field-last" placeholder="Last Name"
+                                                               value="Doe"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-sm" data-dismiss="modal">
+                                            <i class="ace-icon fa fa-times"></i>
+                                            Cancel
+                                        </button>
+
+                                        <button class="btn btn-sm btn-primary">
+                                            <i class="ace-icon fa fa-check"></i>
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
@@ -514,7 +687,6 @@ if (!$_SESSION['username']) {
 
     <div class="footer">
         <div class="footer-inner">
-            <!-- #section:basics/footer -->
             <div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">Ace</span>
@@ -536,8 +708,6 @@ if (!$_SESSION['username']) {
 							</a>
 						</span>
             </div>
-
-            <!-- /section:basics/footer -->
         </div>
     </div>
 
@@ -550,18 +720,18 @@ if (!$_SESSION['username']) {
 
 <!--[if !IE]> -->
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='assets/js/jquery.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='assets/js/jquery.js'>" + "<" + "/script>");
 </script>
 
 <!-- <![endif]-->
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='assets/js/jquery1x.js'>" + "<" + "/script>");
 </script>
 <![endif]-->
 <script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+    if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
 </script>
 <script src="assets/js/bootstrap.js"></script>
 
@@ -611,55 +781,55 @@ if (!$_SESSION['username']) {
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    jQuery(function($) {
-        $('#id-disable-check').on('click', function() {
+    jQuery(function ($) {
+        $('#id-disable-check').on('click', function () {
             var inp = $('#form-input-readonly').get(0);
-            if(inp.hasAttribute('disabled')) {
-                inp.setAttribute('readonly' , 'true');
+            if (inp.hasAttribute('disabled')) {
+                inp.setAttribute('readonly', 'true');
                 inp.removeAttribute('disabled');
-                inp.value="This text field is readonly!";
+                inp.value = "This text field is readonly!";
             }
             else {
-                inp.setAttribute('disabled' , 'disabled');
+                inp.setAttribute('disabled', 'disabled');
                 inp.removeAttribute('readonly');
-                inp.value="This text field is disabled!";
+                inp.value = "This text field is disabled!";
             }
         });
 
 
-        if(!ace.vars['touch']) {
-            $('.chosen-select').chosen({allow_single_deselect:true});
+        if (!ace.vars['touch']) {
+            $('.chosen-select').chosen({allow_single_deselect: true});
             //resize the chosen on window resize
 
             $(window)
                 .off('resize.chosen')
-                .on('resize.chosen', function() {
-                    $('.chosen-select').each(function() {
+                .on('resize.chosen', function () {
+                    $('.chosen-select').each(function () {
                         var $this = $(this);
                         $this.next().css({'width': $this.parent().width()});
                     })
                 }).trigger('resize.chosen');
             //resize chosen on sidebar collapse/expand
-            $(document).on('settings.ace.chosen', function(e, event_name, event_val) {
-                if(event_name != 'sidebar_collapsed') return;
-                $('.chosen-select').each(function() {
+            $(document).on('settings.ace.chosen', function (e, event_name, event_val) {
+                if (event_name != 'sidebar_collapsed') return;
+                $('.chosen-select').each(function () {
                     var $this = $(this);
                     $this.next().css({'width': $this.parent().width()});
                 })
             });
 
 
-            $('#chosen-multiple-style .btn').on('click', function(e){
+            $('#chosen-multiple-style .btn').on('click', function (e) {
                 var target = $(this).find('input[type=radio]');
                 var which = parseInt(target.val());
-                if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
+                if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
                 else $('#form-field-select-4').removeClass('tag-input-style');
             });
         }
 
 
-        $('[data-rel=tooltip]').tooltip({container:'body'});
-        $('[data-rel=popover]').popover({container:'body'});
+        $('[data-rel=tooltip]').tooltip({container: 'body'});
+        $('[data-rel=popover]').popover({container: 'body'});
 
         $('textarea[class*=autosize]').autosize({append: "\n"});
         $('textarea.limited').inputlimiter({
@@ -667,74 +837,76 @@ if (!$_SESSION['username']) {
             limitText: 'max allowed : %n.'
         });
 
-        $.mask.definitions['~']='[+-]';
+        $.mask.definitions['~'] = '[+-]';
         $('.input-mask-date').mask('99/99/9999');
         $('.input-mask-phone').mask('(999) 999-9999');
         $('.input-mask-eyescript').mask('~9.99 ~9.99 999');
-        $(".input-mask-product").mask("a*-999-a999",{placeholder:" ",completed:function(){alert("You typed the following: "+this.val());}});
+        $(".input-mask-product").mask("a*-999-a999", {
+            placeholder: " ", completed: function () {
+                alert("You typed the following: " + this.val());
+            }
+        });
 
 
-
-        $( "#input-size-slider" ).css('width','200px').slider({
-            value:1,
+        $("#input-size-slider").css('width', '200px').slider({
+            value: 1,
             range: "min",
             min: 1,
             max: 8,
             step: 1,
-            slide: function( event, ui ) {
+            slide: function (event, ui) {
                 var sizing = ['', 'input-sm', 'input-lg', 'input-mini', 'input-small', 'input-medium', 'input-large', 'input-xlarge', 'input-xxlarge'];
                 var val = parseInt(ui.value);
-                $('#form-field-4').attr('class', sizing[val]).val('.'+sizing[val]);
+                $('#form-field-4').attr('class', sizing[val]).val('.' + sizing[val]);
             }
         });
 
-        $( "#input-span-slider" ).slider({
-            value:1,
+        $("#input-span-slider").slider({
+            value: 1,
             range: "min",
             min: 1,
             max: 12,
             step: 1,
-            slide: function( event, ui ) {
+            slide: function (event, ui) {
                 var val = parseInt(ui.value);
-                $('#form-field-5').attr('class', 'col-xs-'+val).val('.col-xs-'+val);
+                $('#form-field-5').attr('class', 'col-xs-' + val).val('.col-xs-' + val);
             }
         });
 
 
-
         //"jQuery UI Slider"
         //range slider tooltip example
-        $( "#slider-range" ).css('height','200px').slider({
+        $("#slider-range").css('height', '200px').slider({
             orientation: "vertical",
             range: true,
             min: 0,
             max: 100,
-            values: [ 17, 67 ],
-            slide: function( event, ui ) {
-                var val = ui.values[$(ui.handle).index()-1] + "";
+            values: [17, 67],
+            slide: function (event, ui) {
+                var val = ui.values[$(ui.handle).index() - 1] + "";
 
-                if( !ui.handle.firstChild ) {
+                if (!ui.handle.firstChild) {
                     $("<div class='tooltip right in' style='display:none;left:16px;top:-6px;'><div class='tooltip-arrow'></div><div class='tooltip-inner'></div></div>")
                         .prependTo(ui.handle);
                 }
                 $(ui.handle.firstChild).show().children().eq(1).text(val);
             }
-        }).find('span.ui-slider-handle').on('blur', function(){
+        }).find('span.ui-slider-handle').on('blur', function () {
             $(this.firstChild).hide();
         });
 
 
-        $( "#slider-range-max" ).slider({
+        $("#slider-range-max").slider({
             range: "max",
             min: 1,
             max: 10,
             value: 2
         });
 
-        $( "#slider-eq > span" ).css({width:'90%', 'float':'left', margin:'15px'}).each(function() {
+        $("#slider-eq > span").css({width: '90%', 'float': 'left', margin: '15px'}).each(function () {
             // read initial values from markup and remove that
-            var value = parseInt( $( this ).text(), 10 );
-            $( this ).empty().slider({
+            var value = parseInt($(this).text(), 10);
+            $(this).empty().slider({
                 value: value,
                 range: "min",
                 animate: true
@@ -746,12 +918,12 @@ if (!$_SESSION['username']) {
 
 
         $('#id-input-file-1 , #id-input-file-2').ace_file_input({
-            no_file:'No File ...',
-            btn_choose:'Choose',
-            btn_change:'Change',
-            droppable:false,
-            onchange:null,
-            thumbnail:false //| true | large
+            no_file: 'No File ...',
+            btn_choose: 'Choose',
+            btn_change: 'Change',
+            droppable: false,
+            onchange: null,
+            thumbnail: false //| true | large
             //whitelist:'gif|png|jpg|jpeg'
             //blacklist:'exe|php'
             //onchange:''
@@ -762,12 +934,12 @@ if (!$_SESSION['username']) {
 
 
         $('#id-input-file-3').ace_file_input({
-            style:'well',
-            btn_choose:'Drop files here or click to choose',
-            btn_change:null,
-            no_icon:'ace-icon fa fa-cloud-upload',
-            droppable:true,
-            thumbnail:'small'//large | fit
+            style: 'well',
+            btn_choose: 'Drop files here or click to choose',
+            btn_change: null,
+            no_icon: 'ace-icon fa fa-cloud-upload',
+            droppable: true,
+            thumbnail: 'small'//large | fit
             //,icon_remove:null//set null, to hide remove/reset button
             /**,before_change:function(files, dropped) {
 						//Check an example below
@@ -778,7 +950,7 @@ if (!$_SESSION['username']) {
 						return true;
 					}*/
             ,
-            preview_error : function(filename, error_code) {
+            preview_error: function (filename, error_code) {
                 //name of the file that failed
                 //error_code values
                 //1 = 'FILE_LOAD_FAILED',
@@ -787,7 +959,7 @@ if (!$_SESSION['username']) {
                 //alert(error_code);
             }
 
-        }).on('change', function(){
+        }).on('change', function () {
             //console.log($(this).data('ace_input_files'));
             //console.log($(this).data('ace_input_method'));
         });
@@ -800,18 +972,16 @@ if (!$_SESSION['username']) {
         //]);
 
 
-
-
         //dynamically change allowed formats by changing allowExt && allowMime function
-        $('#id-file-format').removeAttr('checked').on('change', function() {
+        $('#id-file-format').removeAttr('checked').on('change', function () {
             var whitelist_ext, whitelist_mime;
             var btn_choose
             var no_icon
-            if(this.checked) {
+            if (this.checked) {
                 btn_choose = "Drop images here or click to choose";
                 no_icon = "ace-icon fa fa-picture-o";
 
-                whitelist_ext = ["jpeg", "jpg", "png", "gif" , "bmp"];
+                whitelist_ext = ["jpeg", "jpg", "png", "gif", "bmp"];
                 whitelist_mime = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/bmp"];
             }
             else {
@@ -834,7 +1004,7 @@ if (!$_SESSION['username']) {
 
             file_input
                 .off('file.error.ace')
-                .on('file.error.ace', function(e, info) {
+                .on('file.error.ace', function (e, info) {
                     //console.log(info.file_count);//number of selected files
                     //console.log(info.invalid_count);//number of invalid files
                     //console.log(info.error_list);//a list of errors in the following format
@@ -866,14 +1036,49 @@ if (!$_SESSION['username']) {
 
         });
 
-        $('#spinner1').ace_spinner({value:0,min:0,max:200,step:10, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+        $('#spinner1').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 200,
+            step: 10,
+            btn_up_class: 'btn-info',
+            btn_down_class: 'btn-info'
+        })
             .closest('.ace-spinner')
-            .on('changed.fu.spinbox', function(){
+            .on('changed.fu.spinbox', function () {
                 //alert($('#spinner1').val())
             });
-        $('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'ace-icon fa fa-caret-up bigger-110', icon_down:'ace-icon fa fa-caret-down bigger-110'});
-        $('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'ace-icon fa fa-plus bigger-110', icon_down:'ace-icon fa fa-minus bigger-110', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
-        $('#spinner4').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'ace-icon fa fa-plus', icon_down:'ace-icon fa fa-minus', btn_up_class:'btn-purple' , btn_down_class:'btn-purple'});
+        $('#spinner2').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 10000,
+            step: 100,
+            touch_spinner: true,
+            icon_up: 'ace-icon fa fa-caret-up bigger-110',
+            icon_down: 'ace-icon fa fa-caret-down bigger-110'
+        });
+        $('#spinner3').ace_spinner({
+            value: 0,
+            min: -100,
+            max: 100,
+            step: 10,
+            on_sides: true,
+            icon_up: 'ace-icon fa fa-plus bigger-110',
+            icon_down: 'ace-icon fa fa-minus bigger-110',
+            btn_up_class: 'btn-success',
+            btn_down_class: 'btn-danger'
+        });
+        $('#spinner4').ace_spinner({
+            value: 0,
+            min: -100,
+            max: 100,
+            step: 10,
+            on_sides: true,
+            icon_up: 'ace-icon fa fa-plus',
+            icon_down: 'ace-icon fa fa-minus',
+            btn_up_class: 'btn-purple',
+            btn_down_class: 'btn-purple'
+        });
 
         //$('#spinner1').ace_spinner('disable').ace_spinner('value', 11);
         //or
@@ -888,24 +1093,24 @@ if (!$_SESSION['username']) {
             todayHighlight: true
         })
         //show datepicker when clicking on the icon
-            .next().on(ace.click_event, function(){
+            .next().on(ace.click_event, function () {
             $(this).prev().focus();
         });
 
         //or change it into a date range picker
-        $('.input-daterange').datepicker({autoclose:true});
+        $('.input-daterange').datepicker({autoclose: true});
 
 
         //to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
         $('input[name=date-range-picker]').daterangepicker({
-            'applyClass' : 'btn-sm btn-success',
-            'cancelClass' : 'btn-sm btn-default',
+            'applyClass': 'btn-sm btn-success',
+            'cancelClass': 'btn-sm btn-default',
             locale: {
                 applyLabel: 'Apply',
                 cancelLabel: 'Cancel',
             }
         })
-            .prev().on(ace.click_event, function(){
+            .prev().on(ace.click_event, function () {
             $(this).next().focus();
         });
 
@@ -914,11 +1119,11 @@ if (!$_SESSION['username']) {
             minuteStep: 1,
             showSeconds: true,
             showMeridian: false
-        }).next().on(ace.click_event, function(){
+        }).next().on(ace.click_event, function () {
             $(this).prev().focus();
         });
 
-        $('#date-timepicker1').datetimepicker().next().on(ace.click_event, function(){
+        $('#date-timepicker1').datetimepicker().next().on(ace.click_event, function () {
             $(this).prev().focus();
         });
 
@@ -936,10 +1141,10 @@ if (!$_SESSION['username']) {
 
 
         var tag_input = $('#form-field-tags');
-        try{
+        try {
             tag_input.tag(
                 {
-                    placeholder:tag_input.attr('placeholder'),
+                    placeholder: tag_input.attr('placeholder'),
                     //enable typeahead by specifying the source array
                     source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
                     /**
@@ -958,32 +1163,32 @@ if (!$_SESSION['username']) {
             var $tag_obj = $('#form-field-tags').data('tag');
             $tag_obj.add('Programmatically Added');
         }
-        catch(e) {
+        catch (e) {
             //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
-            tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
+            tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
             //$('#form-field-tags').autosize({append: "\n"});
         }
 
 
         /////////
         $('#modal-form input[type=file]').ace_file_input({
-            style:'well',
-            btn_choose:'Drop files here or click to choose',
-            btn_change:null,
-            no_icon:'ace-icon fa fa-cloud-upload',
-            droppable:true,
-            thumbnail:'large'
+            style: 'well',
+            btn_choose: 'Drop files here or click to choose',
+            btn_change: null,
+            no_icon: 'ace-icon fa fa-cloud-upload',
+            droppable: true,
+            thumbnail: 'large'
         })
 
         //chosen plugin inside a modal will have a zero width because the select element is originally hidden
         //and its width cannot be determined.
         //so we set the width after modal is show
         $('#modal-form').on('shown.bs.modal', function () {
-            if(!ace.vars['touch']) {
-                $(this).find('.chosen-container').each(function(){
-                    $(this).find('a:first-child').css('width' , '210px');
-                    $(this).find('.chosen-drop').css('width' , '210px');
-                    $(this).find('.chosen-search input').css('width' , '200px');
+            if (!ace.vars['touch']) {
+                $(this).find('.chosen-container').each(function () {
+                    $(this).find('a:first-child').css('width', '210px');
+                    $(this).find('.chosen-drop').css('width', '210px');
+                    $(this).find('.chosen-search input').css('width', '200px');
                 });
             }
         })
@@ -997,7 +1202,7 @@ if (!$_SESSION['username']) {
 
 
 
-        $(document).one('ajaxloadstart.page', function(e) {
+        $(document).one('ajaxloadstart.page', function (e) {
             $('textarea[class*=autosize]').trigger('autosize.destroy');
             $('.limiterBox,.autosizejs').remove();
             $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
@@ -1007,8 +1212,8 @@ if (!$_SESSION['username']) {
 </script>
 
 <!-- the following scripts are used in demo only for onpage help and you don't need them -->
-<link rel="stylesheet" href="assets/css/ace.onpage-help.css" />
-<link rel="stylesheet" href="docs/assets/js/themes/sunburst.css" />
+<link rel="stylesheet" href="assets/css/ace.onpage-help.css"/>
+<link rel="stylesheet" href="docs/assets/js/themes/sunburst.css"/>
 
 <script type="text/javascript"> ace.vars['base'] = '..'; </script>
 <script src="assets/js/ace/elements.onpage-help.js"></script>
@@ -1020,5 +1225,3 @@ if (!$_SESSION['username']) {
 <script src="docs/assets/js/language/javascript.js"></script>
 </body>
 </html>
-
-

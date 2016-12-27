@@ -11,7 +11,7 @@ if (!$_SESSION['username']) {
 $var =$_POST;
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $query = "insert into barang (n_barang,kategori,harga,stock,gambar,keterangan,tgl_input)
-values ('$_REQUEST[n_barang]','$_REQUEST[kategori]','$_REQUEST[harga]','$_REQUEST[stock]','$_REQUEST[gambar]','$_REQUEST[keterangan]','$_REQUEST[tgl_imput]')";
+values ('$_REQUEST[n_barang]','$_REQUEST[kategori]','$_REQUEST[harga]','$_REQUEST[stock]','$_REQUEST[gambar]','$_REQUEST[keterangan]','$_REQUEST[tgl_input]')";
 
 mysqli_query($conn,$query);
 
@@ -226,18 +226,45 @@ mysqli_query($conn,$query);
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="tables.php">
+                        <a href="barang.php">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Simple &amp; Dynamic
+                            Barang
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="jggrid.php">
+                        <a href="member.php">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            jqGrid plugin
+                            Member
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="penyewaan.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Penyewaan
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="pengembalian.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Pengembalian
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="transaksi.php.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Transaksi
                         </a>
 
                         <b class="arrow"></b>
@@ -487,9 +514,16 @@ mysqli_query($conn,$query);
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Keterangan </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="keterangan">
+                                    <textarea name="keterangan"></textarea>
+                                </div>
+                            </div>
 
-                                    </textarea>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> foto </label>
+
+                                <div class="col-sm-9">
+                                    <input required name="gambar" type="file" id="form-field-1" placeholder="Username"
+                                           class="col-xs-10 col-sm-5"/>
                                 </div>
                             </div>
 
