@@ -51,10 +51,21 @@ include "header.php" ?>
                 <div class="col-sm-12 padding-right">
                     <div class="features_items"><!--features_items-->
                         <?php
-                        $query = "select * from barang";
-                        $result = mysqli_query($conn, $query);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
+                        //pagination
+                        if (isset($_GET['page'])) {
+                            $page = $_GET['page'];
+                        } else {
+                            $page = 1;
+                        }
+                        $per_page = 9;
+                        // Page will start from 0 and Multiple by Per Page
+                        $start_from = ($page - 1) * $per_page;
+
+                        $que = "select * from barang ORDER BY tgl_input DESC LIMIT $start_from, $per_page";
+                        $result2 = mysqli_query($conn, $que);
+
+                        if (mysqli_num_rows($result2) > 0) {
+                            while ($row = mysqli_fetch_assoc($result2)) {
                                 ?>
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
@@ -64,29 +75,52 @@ include "header.php" ?>
                                                      style="width: 248px;height:229px "/>
                                                 <h2>Rp.<?php echo $row['harga'] ?></h2>
                                                 <p><?php echo $row['n_barang'] ?></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add
-                                                    to cart</a>
+
+
+
+
                                             </div>
                                             <div class="product-overlay">
                                                 <div class="overlay-content">
                                                     <h2>Rp.<?php echo $row['harga'] ?></h2>
                                                     <p><?php echo $row['nama_barang'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                    <a href="detail.php?idbarang=<?php echo $row['idbarang'] ?>" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Lihat Detail</a>
                                                 </div>
                                                 <img src="images/home/new.png" class="new" alt=""/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <?php
+                                $no++;
                             }
                         }
-
                         ?>
                     </div>
+                    <center>
+                        <ul class="pagination">
+                            <?php
+                            //Now select all from table
+                            $x = mysqli_query($conn, "SELECT * from barang");
+                            /*var_dump($x);*/
+                            // Count the total records
+                            $total_records = mysqli_num_rows($x);
+
+                            //Using ceil function to divide the total records on per page
+                            $total_pages = ceil($total_records / $per_page);
+
+                            //Going to first page
+                            echo "<li><a href='kategori.php?page=1' style='text-decoration: none'>" . '&laquo;' . "</a></li>";
+
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                echo "<li><a href='kategori.php?page=$i' style='text-decoration: none'>" . $i . "</a></li>";
+                            };
+                            // Going to last page
+                            echo "<li><a href='kategori.php?page=$total_pages' style='text-decoration: none'>" . '&raquo;' . "</a></li>";
+                            ?>
+                        </ul>
+                    </center>
                 </div>
             </div>
         </div>

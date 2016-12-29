@@ -42,7 +42,7 @@ session_start();
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Blog</a></li>
+                            <li><a href="blog.php"><i class="fa fa-user"></i> Blog</a></li>
                             <li><a href="tentang.php"><i class="fa fa-users active"></i> Tentang</a></li>
                             <li><a href="cara.php"><i class="fa fa-crosshairs active"></i> Cara Sewa</a></li>
                             <li><a href="sk.php"><i class="fa fa-shopping-cart " ></i> Syarat & Ketentuan</a></li>
@@ -73,11 +73,12 @@ session_start();
                         <br>
                         <br>
 
-                        <form action="index.php" method="post" >
+                        <form action="search.php" method="post" >
 
                             <div class="search_box pull-right">
-                                <input type="text" placeholder="Search"/>
+                                <input type="text" placeholder="Search" name="search"/>
 
+                                
                             </div>
                         </form>
                     </div>

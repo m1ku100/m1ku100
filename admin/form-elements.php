@@ -214,7 +214,7 @@ mysqli_query($conn,$query);
             </li>
 
 
-            <li class="">
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> Tables </span>
@@ -226,47 +226,30 @@ mysqli_query($conn,$query);
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="barang.php">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Barang
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
                         <a href="member.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Member
                         </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
+                        <a href="barang.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Barang
+                        </a>
+                        <a href="blogtable.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Blog
+                        </a>
                         <a href="penyewaan.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Penyewaan
                         </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="pengembalian.php">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Pengembalian
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="transaksi.php.php">
+                        <a href="transaksi.php">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Transaksi
                         </a>
-
+                        <a href="pengembalian.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            pengembalian
+                        </a>
                         <b class="arrow"></b>
                     </li>
                 </ul>
@@ -283,25 +266,22 @@ mysqli_query($conn,$query);
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-                    <li class="">
+                    <li class="active">
                         <a href="form-elements.php">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Form Elements
+                            Barang
                         </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="wysiwyg.html">
+                        <a href="form_kategori.php">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Wysiwyg &amp; Markdown
+                            Kategori
+                        </a>
+                        <a href="form-admin.php">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Admin
                         </a>
 
                         <b class="arrow"></b>
                     </li>
-
-
                 </ul>
             </li>
 

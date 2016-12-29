@@ -48,8 +48,8 @@ include "header.php";
                     <h2>Login to your account</h2>
                     <form action="login.php" method="post" >
 
-                        <input type="email" placeholder="Email Address" name="email">
-                        <input type="password" placeholder="Password" name="password">
+                        <input type="email" placeholder="Email Address" name="email" required >
+                        <input type="password" placeholder="Password" name="password" required>
 							
                         <button type="submit" name="login" class="btn btn-default">Login</button>
 
@@ -63,12 +63,13 @@ include "header.php";
                             $login = mysqli_query($conn, "select * from member where email='$email' AND password='$password'");
                             if (mysqli_num_rows($login) > 0) {
                                 $_SESSION['email'] = $email;
+                                $_SESSION["email"] = true;
                                 echo "<script>window.open('index.php','_self')</script>";
                             } else {
                                 echo '<div class="alert alert-danger"><button type="button" data-dismiss="alert" aria-hidden="true">&times;</button>Try Again !</div>';
                             }
                         }
-                        $_SESSION["email"] = true;
+
                         ?>
                     </form>
                 </div><!--/login form-->
@@ -86,11 +87,22 @@ include "header.php";
             <div class="col-sm-4">
                 <div class="signup-form"><!--sign up form-->
                     <h2>New User Signup!</h2>
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Name" name="">
-                        <input type="email" placeholder="Email Address" name="">
-                        <input type="password" placeholder="Password" name="">
-                        <button type="submit" class="btn btn-default">Signup</button>
+                    <form action="daftar_pro.php" method="post">
+
+
+                        <input type="text" placeholder="Name" name="nama" required>
+                        <input type="text" placeholder="No KTP" name="no_identitas" required>
+                        <input type="text" placeholder="Alamat" name="alamat" required>
+                        <input type="text" placeholder="Telepon" name="telp" required>
+                        <input type="text" placeholder="username" name="username" required>
+                        <input type="email" placeholder="Email Address" name="email" required>
+                        <input type="password" placeholder="Password" name="password" required>
+                        
+
+
+                        <button type="submit" class="btn btn-default" name="daftar">Signup</button>
+
+
                     </form>
                 </div><!--/sign up form-->
             </div>

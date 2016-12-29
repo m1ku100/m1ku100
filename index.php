@@ -247,16 +247,14 @@ include "header.php";
                                                  style="width: 248px;height:229px "/>
                                             <h2>Rp.<?php echo $row['harga'] ?></h2>
                                             <p><?php echo $row['n_barang'] ?></p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Add
-                                                to cart</a>
+
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>Rp.<?php echo $row['harga'] ?></h2>
                                                 <p><?php echo $row['nama_barang'] ?></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                <a href="detail.php?id=<?php echo $row['idbarang'] ?>" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>Lihat Detail</a>
                                             </div>
                                             <img src="images/home/new.png" class="new" alt="" />
                                         </div>

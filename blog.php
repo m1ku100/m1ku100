@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ilham
- * Date: 10/30/2007
- * Time: 1:02 AM
- */
+include "koneksi.php";
 ?>
 
 <html>
@@ -36,7 +31,76 @@
 include "header.php";
 ?>
 <br>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="row center-block">
+            <h2 class="title text-center">OUR BLOG</h2>
+            <div class="row">
+                <center>
+            <?php
 
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $per_page = 3;
+            // Page will start from 0 and Multiple by Per Page
+            $start_from = ($page - 1) * $per_page;
+            $query = "select * from blog  ORDER BY tgl_berita LIMIT $start_from, $per_page ";
+            $result = mysqli_query($conn, $query);
+            if(mysqli_num_rows($result)>0){
+                while ($row = mysqli_fetch_assoc($result)){
+                    ?>
+
+
+
+                    <p><?php echo $row['tgl_berita']?> </p>
+                    <h2><?php echo $row['judul'] ?></h2>
+                    <img src="img/blog/<?php echo $row['foto'] ?>"><br>
+
+                    <h4><?php echo substr($row['isi'],0,150) //untuk menampilkan bberapa bagian
+                    // text ?></h4>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="detailblog.php?id_berita=<?php echo $row['id_berita'] ?>"><button class="btn btn-warning">Baca Selengkapnya</button> </a>
+                    <hr>
+
+                    <?php
+
+
+                }
+            }
+            ?>
+                </center>
+            </div>
+        </div>
+        <center>
+            <ul class="pagination">
+                <?php
+                //Now select all from table
+                $x = mysqli_query($conn, "SELECT * from blog");
+                /*var_dump($x);*/
+                // Count the total records
+                $total_records = mysqli_num_rows($x);
+
+                //Using ceil function to divide the total records on per page
+                $total_pages = ceil($total_records / $per_page);
+
+                //Going to first page
+                echo "<li><a href='blog.php?page=1' style='text-decoration: none'>" . '&laquo;' . "</a></li>";
+
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    echo "<li><a href='blog.php?page=$i' style='text-decoration: none'>" . $i . "</a></li>";
+                };
+                // Going to last page
+                echo "<li><a href='blog.php?page=$total_pages' style='text-decoration: none'>" . '&raquo;' . "</a></li>";
+                ?>
+            </ul>
+        </center>
+    </div>
+</div>
 
 <?php
 include "footer.php";

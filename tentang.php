@@ -54,6 +54,15 @@ include "header.php";
                             <h4>Web Programmer</h4>
                         </center>
                     </div>
+                    <div class="col-sm-6 col-lg-offset-3">
+                        <center>
+                            <img src="img/pristia.jpg" alt="" style="width: 170px; height: 200px">
+
+                            <h4 class="">Phistia Nur Aminah</h4>
+                            <h4> Database Design &</h4>
+                            <h4>Web Programmer</h4>
+                        </center>
+                    </div>
                 </div>
 
             </div>
@@ -67,7 +76,10 @@ include "header.php";
         <div class="col-lg-7">
             <div class="row">
                 <h2 class="title text-center">What We Do</h2>
-
+                    <h4>Tujuan </h4>
+                        <p>tujuan di bentuknya web ini adalah sebagai wadah untuk pencarian peralatan bayi yang sering
+                            sekali susah didapat & sebagai Proect akhir dalam matakuliah Pemrograman web yang di ampu oleh
+                        bapak Rahardian Bisma S.kom.,M.Kom</p>
             </div>
         </div>
     </div>

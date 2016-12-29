@@ -1,9 +1,19 @@
 <?php
-include "koneksi.php";
+error_reporting(0);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "babyboo";
 session_start();
 if (!$_SESSION['username']) {
     header("location: index.php");
 }
+$var =$_POST;
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+$query = "insert into blog (judul,isi,foto,tgl_berita)
+values ('$_REQUEST[judul]','$_REQUEST[isi]','$_REQUEST[foto]','$_REQUEST[tgl_berita]')";
+
+mysqli_query($conn,$query);
 ?>
 
 <!DOCTYPE html>
@@ -209,7 +219,7 @@ if (!$_SESSION['username']) {
             </li>
 
 
-            <li class="">
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> Tables </span>
@@ -293,11 +303,20 @@ if (!$_SESSION['username']) {
 
         </ul><!-- /.nav-list -->
 
+
+
         <!-- #section:basics/sidebar.layout.minimize -->
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
             <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
                data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
+
+
+
+
+
+
+
 
         <!-- /section:basics/sidebar.layout.minimize -->
         <script type="text/javascript">
@@ -451,43 +470,74 @@ if (!$_SESSION['username']) {
 
 
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <!-- PAGE CONTENT BEGINS -->
-                        <div class="alert alert-block alert-success">
-                            <button type="button" class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
+                <form class="form-horizontal" method="post" target="_self" action="blog.php">
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Judul </label>
+
+                        <div class="col-sm-9">
+                            <input required name="judul" type="text" id="form-field-1" placeholder="Username"
+                                   class="col-xs-10 col-sm-5"/>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Isi Konten </label>
+
+                        <div class="col-sm-9">
+                            <textarea name="isi"></textarea>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tanggal-input </label>
+
+                        <div class="col-sm-9">
+                            <input required name="tgl_berita" type="date" id="form-field-1" placeholder="Username"
+                                   class="col-xs-10 col-sm-5"/>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> foto </label>
+
+                        <div class="col-sm-9">
+                            <input required name="foto" type="file" id="form-field-1" placeholder="Username"
+                                   class="col-xs-10 col-sm-5"/>
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
                             </button>
 
-                            <i class="ace-icon fa fa-check green"></i>
-
-                            Welcome to
-                            <strong class="green">
-                                Ace
-                                <small>(v1.3.3)</small>
-                            </strong>,
-                            the lightweight, feature-rich and easy to use admin template.
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn" type="reset">
+                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                Reset
+                            </button>
                         </div>
+                    </div>
+
+                    <div class="hr hr-24"></div>
 
 
-
-                        <!-- #section:custom/extra.hr -->
-                        <div class="hr hr32 hr-dotted"></div>
-
-                        <!-- /section:custom/extra.hr -->
-                        <div class="row">
+                    <div class="space-24"></div>
 
 
-
-                        </div><!-- /.row -->
-
-
-
-
-
-                        <!-- PAGE CONTENT ENDS -->
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                </form>
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->

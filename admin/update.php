@@ -1,18 +1,22 @@
 <?php
 include "koneksi.php";
 
+
+// assigment nim dengan nilai nim yang akan diedit
+// jika tombol 'Simpan' dengan properti name="save" pada baris 162 ditekan
 $id = $_POST['idbarang'];
 $barang = $_POST['n_barang'];
 $kategori = $_POST['kategori'];
 $harga = $_POST['harga'];
 $stock = $_POST['stock'];
 $keterangan = $_POST['keterangan'];
-$foto = $_POST['foto'];
+$gambar = $_POST['gambar'];
 $tgl_input = $_POST['tgl_input'];
 
-$juh = "update barang set idbarang='$id', n_barang='$barang', kategori='$kategori',harga='$harga', 
-              keterangan='$keterangan', gambar='$foto' tgl_input='$tgl_input'where idbarang";
 
-mysqli_query($conn, $juh);
+$update = mysqli_query($conn, "UPDATE barang SET n_barang='$barang', kategori='$kategori', harga='$harga', stock='$stock', gambar='$gambar', keterangan='$keterangan', tgl_input='$tgl_input' WHERE idbarang='$id'"); // query untuk mengupdate nilai entri dalam database
+mysqli_query($conn, $update);
 header("location: barang.php");
+
+
 ?>

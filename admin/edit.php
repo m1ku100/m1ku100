@@ -8,23 +8,38 @@ session_start();
 if (!$_SESSION['username']) {
     header("location: index.php");
 }
-$var =$_POST;
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if($_REQUEST['idbarang'])
-{
-    $query = "select * from barang where idbarang=$_REQUEST[idbarang]";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0)
-    {
-        $row = mysqli_fetch_assoc($result);
-    }
-    else
-    {
-        echo "Tidak Ditemukan";
-    }
+$idbarang = $_GET['idbarang'];
+$sql = mysqli_query($conn, "select * from barang where idberita='$idbarang'");
+if(mysql_num_rows($sql)==0){
+    header("location : barang.php");
+}else {
+    $row = mysqli_fetch_assoc($sql);
 }
+if (isset($_POST['idbarang'])){
+    $idbarang = $_POST['idbarang'];
+    $barang = $_POST['n_barang'];
+    $kategori = $_POST['kategori'];
+    $harga = $_POST['harga'];
+    $stock = $_POST['stock'];
+    $keterangan = $_POST['keterangan'];
+    $gambar = $_POST['gambar'];
+    $tgl_input = $_POST['tgl_input'];
 
+    $query = " UPDATE barang SET n_barang='$barang', kategori='$kategori', harga='$harga', stock='$stock', keterangan='$keterangan',gambar='$gambar', tgl_input='$tgl_input') 
+ WHERE idbarang=$idbarang";
+$update = mysqli_query($conn, $query) or  die (mysqli_error());
+
+    if ($update){
+        header ("location : edit.php?idbarang".$idbarang."pesan=sukses");
+    }
+    else {
+        echo '<div class="alert alert-danger">gagal di simpan';
+    }
+
+}
+if (isset($_get))
 ?>
 
 <!DOCTYPE html>
@@ -449,19 +464,19 @@ if($_REQUEST['idbarang'])
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-
+                       
 
 
 
                         <!-- ,ulai form -->
-                        <form class="form-horizontal" method="post"  action="update.php">
+                        <form class="form-horizontal" method="post"  action="edit.php">
 
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1" > Nama Barang </label>
 
                                 <div class="col-sm-9">
-                                    <input required name="n_barang" type="text" id="form-field-1" placeholder="Username"
+                                    <input required name="n_barang" type="text" id="form-field-1"
                                            class="col-xs-10 col-sm-5"/ value="<?php echo $row['n_barang'];?>">
                                 </div>
                             </div>
@@ -539,10 +554,10 @@ if($_REQUEST['idbarang'])
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">
-                                   <a href="update.php"> <button class="btn btn-info" type="submit" name="update" value="update">
+                                  <button class="btn btn-info" type="submit" name="save" value="Simpan">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
                                         Submit
-                                    </button></a>
+                                    </button>
 
                                     &nbsp; &nbsp; &nbsp;
                                     <button class="btn" type="reset">
